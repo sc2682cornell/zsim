@@ -68,13 +68,13 @@ PinCmd::PinCmd(Config* conf, const char* configFile, const char* outputDir, uint
     }
     wordfree(&p);
 
-    if (PIN_PRODUCT_VERSION_MAJOR <= 2 && LINUX_VERSION_CODE >= KERNEL_VERSION(4,0,0)
-            && std::find(args.begin(), args.end(), "-injection") == args.end()) {
+    //Shuang: if (PIN_PRODUCT_VERSION_MAJOR <= 2 && LINUX_VERSION_CODE >= KERNEL_VERSION(4,0,0)
+    //        && std::find(args.begin(), args.end(), "-injection") == args.end()) {
         // FIXME(mgao): hack to bypass kernel version check in Pin 2.x.
         // Parent injection.
         args.push_back("-injection");
         args.push_back("parent");
-    }
+    //}
 
     //Load tool
     args.push_back("-t");
